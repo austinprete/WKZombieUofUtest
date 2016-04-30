@@ -8,6 +8,8 @@
 
 import UIKit
 import WKZombie
+import hpple
+
 
 class ViewController: UIViewController {
     
@@ -29,10 +31,15 @@ class ViewController: UIViewController {
         // Do any additional setup afte r loading the view, typically from a nib.
     }
     
-    func handleResult<T: HTMLElement>(result: T) -> Action<T> {
+    func handleResult<T: HTMLElement>(result: T) -> Action<HTMLImage> {
 //        result.fetch
-        print("dog")
-        return Action(value: result)
+//        var original_image = (result as! HTMLImage)
+//        let original_source = original_image.source
+        (result as! HTMLImage).setValue(NSURL(string: "dog"), forKey: "src")
+//        var new_result = HTMLImage(element: result)
+//        new_result!.setValue(NSURL(string: "dog"), forKey: "src")
+//        print(new_result!.source)
+        return Action(value: result as! HTMLImage)
     }
 
     func handleImage(result: HTMLImage?) {
