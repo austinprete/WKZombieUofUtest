@@ -26,12 +26,13 @@ class ViewController: UIViewController {
             >>> handleResult
             >>> browser.fetch
             === handleImage
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup afte r loading the view, typically from a nib.
     }
     
-    func handleResult(result: Action<HTMLElement>) -> Action<HTMLElement> {
+    func handleResult<T: HTMLElement>(result: T) -> Action<T> {
 //        result.fetch
-        print(result)
+        print("dog")
+        return Action(value: result)
     }
 
     func handleImage(result: HTMLImage?) {
